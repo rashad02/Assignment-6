@@ -1,0 +1,165 @@
+.main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
+  }
+  
+  .todoList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .todoList li {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+  }
+  
+  .todoList li:last-child {
+    border-bottom: none;
+  }
+  
+  .todoList li.editing {
+    border-bottom: none;
+    padding: 0;
+  }
+  
+  .todoList li.editing .edit {
+    display: block;
+    width: 506px;
+    padding: 13px 17px 12px 17px;
+    margin: 0 0 0 43px;
+  }
+  
+  .todoList li.editing .view {
+    display: none;
+  }
+
+  .todoList li .toggle {
+    text-align: center;
+    width: 40px;
+    /* auto, since non-WebKit browsers doesn't support input styling */
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    margin: auto 0;
+    border: none; /* Mobile Safari */
+    background-color: (0 0 0 0);
+    color: white;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+
+  .todoList li .toggle:focus {
+    outline: none;
+  } 
+  
+  .todoList li .toggle:after {
+    content: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+    <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+    <g><path d="M500,892c-216.6,0-392-175.4-392-392c0-216.6,175.4-392,392-392c216.6,0,392,175.4,392,392C892,716.6,716.6,892,500,892 M500,10C229.5,10,10,229.5,10,500c0,270.5,219.5,490,490,490c270.5,0,490-219.5,490-490C990,229.5,770.5,10,500,10z"/></g>
+    </svg>');
+  }
+  
+  .todoList li .toggle:checked:after {
+    // background-image: url('../toggle-icon.svg');
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z"/></svg>');
+  }
+  
+  .todoList li label {
+    white-space: pre-line;
+    word-break: break-all;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+  }
+  
+  .todoList li.completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+  }
+  
+  .todoList li .destroy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
+  }
+  
+  .todoList li .destroy:hover {
+    color: #af5b5e;
+  }
+  
+  .todoList li .destroy:after {
+    content: '×';
+  }
+  
+  .todoList li:hover .destroy {
+    display: block;
+  }
+  
+  .todoList li .edit {
+    display: none;
+  }
+  
+  .todoList li.editing:last-child {
+    margin-bottom: -1px;
+  }
+  
+  .toggleAll {
+    position: absolute;
+    top: -55px;
+    left: -12px;
+    width: 60px;
+    height: 34px;
+    text-align: center;
+    border: none; /* Mobile Safari */
+  }
+  
+  .toggleAll:before {
+    content: '❯';
+    font-size: 22px;
+    color: #e6e6e6;
+    padding: 10px 27px 10px 27px;
+  }
+  
+  .toggleAll:checked:before {
+    color: #737373;
+  }
+  
+  /*
+    Hack to remove background from Mobile Safari.
+    Can't use it globally since it destroys checkboxes in Firefox
+  */
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    // .toggleAll,
+    // .todoList li .toggle {
+    //   background: none;
+    // }
+  
+    .todoList li .toggle {
+      height: 20px;
+    }
+    
+    .todoList li .toggle:checked  {
+      height: 40px !important;
+    }
+  
+    .toggleAll {
+      transform: rotate(90deg);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+  }

@@ -1,0 +1,97 @@
+.todo-item .toggle {
+    text-align: center;
+    width: 40px;
+    /* auto, since non-WebKit browsers doesn't support input styling */
+    height: auto;
+    position: absolute;
+    top: 0 !important;
+    bottom: 0;
+    margin: auto 0;
+    border: none; /* Mobile Safari */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .todo-item .toggle:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z"/></svg>');
+  }
+  .todo-item .toggle:checked:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 16.518l-4.5-4.319 1.396-1.435 3.078 2.937 6.105-6.218 1.421 1.409-7.5 7.626z"/></svg>');
+  }
+  
+  .todo-item label {
+    white-space: pre-line;
+    word-break: break-all;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+  }
+  
+  .todo-item .destroy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
+  }
+  
+  .todo-item .destroy:hover {
+    color: #af5b5e;
+  }
+  
+  .todo-item .destroy:after {
+    content: '×';
+  }
+  
+  .todo-item:hover .destroy {
+    display: block;
+  }
+  
+  .todo-item .edit {
+    display: none;
+  }
+  
+  .editing {
+    border-bottom: none;
+    padding: 0;
+    // composes: todo-item;
+  }
+  
+  .editing:last-child {
+    margin-bottom: -1px;
+  }
+  
+  .editing .edit {
+    display: block;
+    width: 506px;
+    padding: 13px 17px 12px 17px;
+    margin: 0 0 0 43px;
+  }
+  
+  .editing .view {
+    display: none;
+  }
+  
+  .completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    .todo-item .toggle {
+      background: none;
+    }
+  
+    .todo-item .toggle {
+      height: 20px;
+    }
+  }
